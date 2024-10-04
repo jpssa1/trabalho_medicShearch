@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medic_app/componentes/event.dart';
 import 'package:medic_app/cores/color.dart';
+import 'package:medic_app/telas/home/home_page.dart';
 import 'package:medic_app/telas/remedios/remedios_page.dart';
 import 'package:medic_app/widgets/app_bar_standart.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -19,7 +20,7 @@ class _CalendarioPageState extends State<CalendarioPage> {
 
   final List<Widget> pages = [
     const RemediosPage(), // Corpo da página de Remédios
-    const Placeholder(), // Placeholder para Home (você pode substituir pela sua tela Home)
+    const HomePage(), // Placeholder para Home (você pode substituir pela sua tela Home)
     const CalendarioPage(), // Página de Calendário
   ];
 
