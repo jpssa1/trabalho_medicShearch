@@ -4,8 +4,8 @@ import 'package:medic_app/cores/color.dart';
 import 'package:medic_app/widgets/app_bar_standart.dart';
 import 'package:medic_app/widgets/remedio_screen_view.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class RemediosPage extends StatelessWidget {
+  const RemediosPage({super.key});
 
   @override
   Widget build(BuildContext context) {

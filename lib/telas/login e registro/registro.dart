@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:medic_app/cores/color.dart';
 import 'package:medic_app/path/svgs.dart';
-import 'package:medic_app/telas/home/home_page.dart';
+import 'package:medic_app/telas/remedios/remedios_page.dart';
 import 'package:medic_app/telas/login%20e%20registro/login.dart';
 import 'package:medic_app/widgets/button_basic.dart';
 import 'package:medic_app/widgets/text_field_basic.dart';
@@ -45,7 +45,7 @@ class RegistroPage extends StatelessWidget {
               const SizedBox(height: 30),
               const TextFieldBasic(texto: 'Senha :'),
               const SizedBox(height: 70),
-              const ButtonBasic(page: HomePage(), texto: 'Cadastrar'),
+              const ButtonBasic(page: RemediosPage(), texto: 'Cadastrar'),
               const SizedBox(height: 40),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

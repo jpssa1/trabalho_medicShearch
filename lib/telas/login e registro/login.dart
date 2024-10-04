@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medic_app/cores/color.dart';
-import 'package:medic_app/telas/home/home_page.dart';
+import 'package:medic_app/telas/remedios/remedios_page.dart';
 import 'package:medic_app/telas/login%20e%20registro/registro.dart';
 import 'package:medic_app/widgets/app_bar_pop.dart';
 import 'package:medic_app/widgets/button_basic.dart';
@@ -32,7 +32,7 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 30),
               const TextFieldBasic(texto: 'Senha :'),
               const SizedBox(height: 70),
-              const ButtonBasic(page: HomePage(), texto: 'Entrar'),
+              const ButtonBasic(page: RemediosPage(), texto: 'Entrar'),
               const SizedBox(height: 60),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
