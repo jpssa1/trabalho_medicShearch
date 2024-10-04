@@ -44,7 +44,6 @@ class _CalendarioPageState extends State<CalendarioPage> {
     }
   }
 
-  Map<DateTime, List<Event>> events = {};
   final TextEditingController _eventController = TextEditingController();
   late final ValueNotifier<List<Event>> _selectedEvent;
   @override
@@ -55,14 +54,14 @@ class _CalendarioPageState extends State<CalendarioPage> {
   }
 
   List<Event> _getEventsForDay(DateTime day) {
-    return events[day] ?? [];
+    return Event.events[day] ?? [];
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Cor.verdeLodo,
-      appBar: AppBarStandart(),
+      appBar: const AppBarStandart(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Cor.bgverde,
         onPressed: () {
@@ -71,9 +70,9 @@ class _CalendarioPageState extends State<CalendarioPage> {
               builder: (context) {
                 return AlertDialog(
                   scrollable: true,
-                  title: Text('Lembrete'),
+                  title: const Text('Lembrete'),
                   content: Padding(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     child: TextField(
                       controller: _eventController,
                     ),
@@ -81,7 +80,7 @@ class _CalendarioPageState extends State<CalendarioPage> {
                   actions: [
                     ElevatedButton(
                         onPressed: () {
-                          events.addAll({
+                          Event.events.addAll({
                             _selectedDay!: [Event(title: _eventController.text)]
                           });
                           Navigator.of(context).pop();
@@ -89,7 +88,7 @@ class _CalendarioPageState extends State<CalendarioPage> {
                               _getEventsForDay(_selectedDay!);
                           _eventController.clear();
                         },
-                        child: Text(
+                        child: const Text(
                           'Salvar',
                           style: TextStyle(color: Cor.preto),
                         ))
@@ -97,7 +96,7 @@ class _CalendarioPageState extends State<CalendarioPage> {
                 );
               });
         },
-        child: Icon(
+        child: const Icon(
           Icons.add,
           color: Cor.verdeNeo,
         ),
@@ -107,13 +106,13 @@ class _CalendarioPageState extends State<CalendarioPage> {
         child: Column(
           children: [
             Text(
-              'Dia selecionado : ' + _focusedDay.toString().split(' ')[0],
-              style: TextStyle(color: Cor.branco, fontSize: 20),
+              'Dia selecionado : ${_focusedDay.toString().split(' ')[0]}',
+              style: const TextStyle(color: Cor.branco, fontSize: 20),
             ),
             Card(
               elevation: 10,
               child: TableCalendar(
-                headerStyle: HeaderStyle(
+                headerStyle: const HeaderStyle(
                   formatButtonVisible: false,
                   titleCentered: true,
                 ),
@@ -127,7 +126,7 @@ class _CalendarioPageState extends State<CalendarioPage> {
                 eventLoader: _getEventsForDay,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Expanded(
@@ -138,8 +137,9 @@ class _CalendarioPageState extends State<CalendarioPage> {
                       itemCount: value.length,
                       itemBuilder: (context, index) {
                         return Card(
+                          elevation: 8,
                           child: ListTile(
-                            onTap: () => print(""),
+                            onTap: () {},
                             title: Text(value[index].title),
                           ),
                         );
