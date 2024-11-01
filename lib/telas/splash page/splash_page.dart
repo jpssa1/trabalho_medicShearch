@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medic_app/cores/color.dart';
 import 'package:medic_app/path/svgs.dart';
-import 'package:medic_app/telas/login%20e%20registro/login_ou_registro.dart';
+import 'package:medic_app/telas/login%20e%20registro/login.dart';
+
 import 'package:page_transition/page_transition.dart';
 
 class SplashPage extends StatefulWidget {
@@ -22,7 +23,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Cor.verdeLodo,
+      backgroundColor: Cor.azulbase,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -39,7 +40,7 @@ class _SplashPageState extends State<SplashPage> {
     Navigator.pushReplacement(
       context,
       PageTransition(
-        child: const LoginOuRegistroPage(),
+        child: const LoginPage(),
         type: PageTransitionType.fade,
         duration: const Duration(milliseconds: 500),
       ),

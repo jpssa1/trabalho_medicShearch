@@ -5,18 +5,20 @@ import 'package:page_transition/page_transition.dart';
 class ButtonBasic extends StatelessWidget {
   final Widget page;
   final String texto;
+  final Color cor;
   const ButtonBasic({
     super.key,
     required this.page,
     required this.texto,
+    required this.cor,
   });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: Cor.marrom,
-        minimumSize: const Size(300, 60),
+        backgroundColor: cor,
+        minimumSize: const Size(320, 60),
       ),
       onPressed: () {
         Navigator.push(

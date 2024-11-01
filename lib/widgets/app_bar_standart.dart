@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:medic_app/cores/color.dart';
-import 'package:medic_app/path/svgs.dart';
 
 class AppBarStandart extends StatelessWidget implements PreferredSizeWidget {
   const AppBarStandart({
@@ -15,10 +14,7 @@ class AppBarStandart extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.transparent,
       iconTheme: const IconThemeData(color: Cor.verdeNeo),
       centerTitle: true,
-      title: SvgPicture.asset(
-        Svgs.logo,
-        height: 130,
-      ),
+      title: Text('Bem vindo!'),
       actions: [
         IconButton(
           onPressed: () {},
