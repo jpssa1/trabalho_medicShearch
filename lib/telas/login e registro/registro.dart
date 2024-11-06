@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:medic_app/cores/color.dart';
 import 'package:medic_app/path/svgs.dart';
-import 'package:medic_app/telas/remedios/remedios_page.dart';
-import 'package:medic_app/telas/login%20e%20registro/login.dart';
+
 import 'package:medic_app/widgets/button_basic.dart';
 import 'package:medic_app/widgets/text_field_basic.dart';
 
@@ -78,7 +77,7 @@ class RegistroPage extends StatelessWidget {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 40),
+              padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20),
               child: Column(
                 children: [
                   TextFieldBasic(

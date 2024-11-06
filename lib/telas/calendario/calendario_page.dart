@@ -61,10 +61,9 @@ class _CalendarioPageState extends State<CalendarioPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Cor.verdeLodo,
-      appBar: const AppBarStandart(),
+      backgroundColor: Cor.branco,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Cor.bgverde,
+        backgroundColor: Cor.azulbase,
         onPressed: () {
           showDialog(
               context: context,
@@ -99,57 +98,109 @@ class _CalendarioPageState extends State<CalendarioPage> {
         },
         child: const Icon(
           Icons.add,
-          color: Cor.verdeNeo,
+          color: Cor.azulclaro,
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Text(
-              'Dia selecionado : ${_focusedDay.toString().split(' ')[0]}',
-              style: const TextStyle(color: Cor.branco, fontSize: 20),
-            ),
-            Card(
-              elevation: 10,
-              child: TableCalendar(
-                headerStyle: const HeaderStyle(
-                  formatButtonVisible: false,
-                  titleCentered: true,
-                ),
-                availableGestures: AvailableGestures.all,
-                rowHeight: 60,
-                focusedDay: _focusedDay,
-                firstDay: DateTime.utc(2020, 10, 16),
-                lastDay: DateTime.utc(2040, 10, 16),
-                selectedDayPredicate: (day) => isSameDay(day, _focusedDay),
-                onDaySelected: _onDaySelected,
-                eventLoader: _getEventsForDay,
+      body: Column(
+        children: [
+          Container(
+            height: 90,
+            decoration: BoxDecoration(
+              color: Cor.azulbase,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
               ),
             ),
-            const SizedBox(
-              height: 10,
+            child: AppBar(
+              backgroundColor: Colors.transparent,
+              leading: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.volume_up,
+                  size: 50,
+                  color: Cor.azulclaro,
+                ),
+              ),
+              actions: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(
+                    Icons.close,
+                    size: 40,
+                    color: Cor.azulclaro,
+                  ),
+                )
+              ],
+              centerTitle: true,
             ),
-            Expanded(
-              child: ValueListenableBuilder<List<Event>>(
-                  valueListenable: _selectedEvent,
-                  builder: (context, value, _) {
-                    return ListView.builder(
-                      itemCount: value.length,
-                      itemBuilder: (context, index) {
-                        return Card(
-                          elevation: 8,
-                          child: ListTile(
-                            onTap: () {},
-                            title: Text(value[index].title),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Dia selecionado : ${_focusedDay.toString().split(' ')[0]}',
+                  style: const TextStyle(
+                      color: Cor.azulbase,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Card(
+                  elevation: 10,
+                  child: TableCalendar(
+                    headerStyle: const HeaderStyle(
+                      formatButtonVisible: false,
+                      titleCentered: true,
+                    ),
+                    calendarStyle: CalendarStyle(),
+                    availableGestures: AvailableGestures.all,
+                    rowHeight: 60,
+                    focusedDay: _focusedDay,
+                    firstDay: DateTime.utc(2020, 10, 16),
+                    lastDay: DateTime.utc(2040, 10, 16),
+                    selectedDayPredicate: (day) => isSameDay(day, _focusedDay),
+                    onDaySelected: _onDaySelected,
+                    eventLoader: _getEventsForDay,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Expanded(
+            child: ValueListenableBuilder<List<Event>>(
+                valueListenable: _selectedEvent,
+                builder: (context, value, _) {
+                  return ListView.builder(
+                    itemCount: value.length,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        color: Cor.azulbase,
+                        elevation: 8,
+                        child: ListTile(
+                          onTap: () {},
+                          title: Text(
+                            value[index].title,
+                            style: TextStyle(color: Cor.branco),
                           ),
-                        );
-                      },
-                    );
-                  }),
-            )
-          ],
-        ),
+                        ),
+                      );
+                    },
+                  );
+                }),
+          )
+        ],
       ),
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.only(
@@ -157,9 +208,9 @@ class _CalendarioPageState extends State<CalendarioPage> {
           topRight: Radius.circular(30),
         ),
         child: BottomNavigationBar(
-          backgroundColor: Cor.marrom,
+          backgroundColor: Cor.azulbase,
           iconSize: 25,
-          selectedItemColor: Cor.verdeIcones,
+          selectedItemColor: Cor.azulclaro,
           elevation: 5,
           currentIndex: selectedIndex,
           items: const [

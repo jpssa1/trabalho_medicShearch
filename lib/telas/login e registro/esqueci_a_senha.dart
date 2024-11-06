@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medic_app/cores/color.dart';
 import 'package:medic_app/path/svgs.dart';
+import 'package:medic_app/telas/login%20e%20registro/login.dart';
 import 'package:medic_app/widgets/button_basic.dart';
 import 'package:medic_app/widgets/text_field_basic.dart';
 
@@ -87,7 +88,7 @@ class EsqueciASenha extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: 60,
+                            height: 20,
                           ),
                           Padding(
                             padding: EdgeInsets.all(10.0),
@@ -107,7 +108,7 @@ class EsqueciASenha extends StatelessWidget {
                           ),
                           SizedBox(height: 30),
                           ButtonBasic(
-                            page: EsqueciASenha(),
+                            page: LoginPage(),
                             texto: 'Mudar senha',
                             cor: Cor.azulclaro,
                           ),

@@ -3,7 +3,7 @@ import 'package:medic_app/componentes/remedio.dart';
 import 'package:medic_app/cores/color.dart';
 import 'package:medic_app/telas/calendario/calendario_page.dart';
 import 'package:medic_app/telas/home/home_page.dart';
-import 'package:medic_app/widgets/app_bar_standart.dart';
+
 import 'package:medic_app/widgets/remedio_screen_view.dart';
 
 class RemediosPage extends StatefulWidget {
@@ -37,69 +37,75 @@ class _RemediosPageState extends State<RemediosPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Cor.branco,
-      appBar: AppBar(
-        backgroundColor: Cor.azulbase,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.volume_up,
-            size: 50,
-            color: Cor.azulclaro,
-          ),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.close,
-                size: 40,
-                color: Cor.azulclaro,
-              ))
-        ],
-        centerTitle: true,
-      ),
       body: Column(
         children: [
-          Container(
-            height: 110,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              color: Cor.azulbase,
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(40),
-                  bottomRight: Radius.circular(40)),
-            ),
-            child: Column(
-              children: [
-                Text(
-                  'remedios',
-                  style: TextStyle(
-                      color: Cor.branco,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold),
+          Stack(
+            children: [
+              Container(
+                height: 150,
+                decoration: const BoxDecoration(
+                  color: Cor.azulbase,
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(40),
+                      bottomRight: Radius.circular(40)),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      fillColor: Cor.branco,
-                      filled: true,
-                      hintText: 'Pesquisar',
-                      suffixIcon: Icon(Icons.search),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                      ),
-                    ),
-                    onChanged: (value) {
-                      // Apenas para ilustração, não faz nada
-                      print('Texto digitado: $value');
-                    },
+              ),
+              AppBar(
+                backgroundColor: Cor.azulbase,
+                leading: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.volume_up,
+                    size: 50,
+                    color: Cor.azulclaro,
                   ),
                 ),
-              ],
-            ),
+                actions: [
+                  IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.close,
+                        size: 40,
+                        color: Cor.azulclaro,
+                      ))
+                ],
+                centerTitle: true,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 40.0),
+                child: Column(
+                  children: [
+                    Text(
+                      'remedios',
+                      style: TextStyle(
+                          color: Cor.branco,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          fillColor: Cor.branco,
+                          filled: true,
+                          hintText: 'Pesquisar',
+                          suffixIcon: Icon(Icons.search),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                          ),
+                        ),
+                        onChanged: (value) {
+                          // Apenas para ilustração, não faz nada
+                          print('Texto digitado: $value');
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),
@@ -200,7 +206,7 @@ class _RemediosPageState extends State<RemediosPage> {
         child: BottomNavigationBar(
           backgroundColor: Cor.azulbase,
           iconSize: 25,
-          selectedItemColor: Cor.verdeIcones,
+          selectedItemColor: Cor.azulclaro,
           elevation: 5,
           currentIndex: _selectedIndex,
           items: const [

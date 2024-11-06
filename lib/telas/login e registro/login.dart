@@ -40,7 +40,7 @@ class LoginPage extends StatelessWidget {
           children: [
             SvgPicture.asset(
               Svgs.logoComNomeBranco,
-              height: 300,
+              height: 250,
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 10),
