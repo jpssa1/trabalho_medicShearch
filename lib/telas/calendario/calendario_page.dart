@@ -3,7 +3,7 @@ import 'package:medic_app/componentes/event.dart';
 import 'package:medic_app/cores/color.dart';
 import 'package:medic_app/telas/home/home_page.dart';
 import 'package:medic_app/telas/remedios/remedios_page.dart';
-import 'package:medic_app/widgets/app_bar_standart.dart';
+
 import 'package:table_calendar/table_calendar.dart';
 
 class CalendarioPage extends StatefulWidget {

@@ -3,7 +3,6 @@ import 'package:medic_app/componentes/remedio.dart';
 import 'package:medic_app/cores/color.dart';
 import 'package:medic_app/telas/calendario/calendario_page.dart';
 import 'package:medic_app/telas/remedios/remedios_page.dart';
-import 'package:medic_app/widgets/app_bar_standart.dart';
 import 'package:medic_app/widgets/remedio_screen_view.dart';
 
 class HomePage extends StatefulWidget {

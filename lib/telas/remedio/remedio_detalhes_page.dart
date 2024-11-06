@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medic_app/componentes/remedio.dart';
 import 'package:medic_app/cores/color.dart';
-import 'package:medic_app/widgets/app_bar_pop.dart';
 
 class RemedioDetalhesPage extends StatelessWidget {
   final Remedio remedio;
