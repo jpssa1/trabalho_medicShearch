@@ -28,25 +28,23 @@ class RemedioScreenView extends StatelessWidget {
         );
       },
       child: Card(
-        color: Cor.verdeIcones,
+        color: Cor.azulbase,
         elevation: 10,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.only(bottom: 5),
+              padding: const EdgeInsets.only(bottom: 10),
               child: Image.asset(
                 imagem,
-                width: 130,
-                height: 130,
+                width: 140,
+                height: 140,
               ),
             ),
             Text(
               titulo,
               style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
+                  fontSize: 14, fontWeight: FontWeight.w500, color: Cor.branco),
             ),
           ],
         ),

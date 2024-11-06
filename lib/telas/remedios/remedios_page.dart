@@ -36,28 +36,161 @@ class _RemediosPageState extends State<RemediosPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Cor.verdeLodo,
-      appBar: const AppBarStandart(),
-      body: SizedBox(
-        width: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2),
-            itemCount: listaDeRemedios.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: RemedioScreenView(
-                  titulo: listaDeRemedios[index].nome,
-                  imagem: listaDeRemedios[index].imagen,
-                  remedio: listaDeRemedios[index],
-                ),
-              );
-            },
+      backgroundColor: Cor.branco,
+      appBar: AppBar(
+        backgroundColor: Cor.azulbase,
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.volume_up,
+            size: 50,
+            color: Cor.azulclaro,
           ),
         ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.close,
+                size: 40,
+                color: Cor.azulclaro,
+              ))
+        ],
+        centerTitle: true,
+      ),
+      body: Column(
+        children: [
+          Container(
+            height: 110,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              color: Cor.azulbase,
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(40),
+                  bottomRight: Radius.circular(40)),
+            ),
+            child: Column(
+              children: [
+                Text(
+                  'remedios',
+                  style: TextStyle(
+                      color: Cor.branco,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      fillColor: Cor.branco,
+                      filled: true,
+                      hintText: 'Pesquisar',
+                      suffixIcon: Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                    ),
+                    onChanged: (value) {
+                      // Apenas para ilustração, não faz nada
+                      print('Texto digitado: $value');
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  height: 50,
+                  width: 120,
+                  decoration: BoxDecoration(
+                      color: Cor.azulbase,
+                      borderRadius: BorderRadius.circular(25)),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Favoritos',
+                        style: TextStyle(
+                          color: Cor.branco,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  width: 120,
+                  decoration: BoxDecoration(
+                      color: Cor.azulbase,
+                      borderRadius: BorderRadius.circular(25)),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Categoria',
+                        style: TextStyle(
+                          color: Cor.branco,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  width: 120,
+                  decoration: BoxDecoration(
+                      color: Cor.azulbase,
+                      borderRadius: BorderRadius.circular(25)),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'A-Z',
+                        style: TextStyle(
+                          color: Cor.branco,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisExtent: 200, crossAxisCount: 1),
+                itemCount: listaDeRemedios.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: RemedioScreenView(
+                      titulo: listaDeRemedios[index].nome,
+                      imagem: listaDeRemedios[index].imagen,
+                      remedio: listaDeRemedios[index],
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.only(
@@ -65,7 +198,7 @@ class _RemediosPageState extends State<RemediosPage> {
           topRight: Radius.circular(30),
         ),
         child: BottomNavigationBar(
-          backgroundColor: Cor.marrom,
+          backgroundColor: Cor.azulbase,
           iconSize: 25,
           selectedItemColor: Cor.verdeIcones,
           elevation: 5,
